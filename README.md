@@ -2,31 +2,31 @@
 
 Unified and Interpretable Troubleshooting for Microservice Systems using Multi-modal Data
 
-```
-Metis is a unified framework for microservice troubleshooting that integrates **Anomaly Detection (AD)**, **Root Cause Localization (RCL)**, and **Fault Type Identification (FTI)** into a single end-to-end pipeline.
-Unlike existing methods that rely on single-modal signals or disconnected modules, **Metis** systematically incorporates multi-modal observability data — **logs, metrics, and traces** — throughout the entire troubleshooting process. It also provides **interpretable outputs** by linking predictions directly to raw observability data.
-```
+
+Metis is a unified framework for microservice troubleshooting that integrates Anomaly Detection (AD), Root Cause Localization (RCL), and Fault Type Identification (FTI) into a single end-to-end pipeline.
+Unlike existing methods that rely on single-modal signals or disconnected modules, Metis systematically incorporates multi-modal observability data — logs, metrics, and traces — throughout the entire troubleshooting process. It also provides interpretable outputs by linking predictions directly to raw observability data.
+
 
 
 ## 📦 Module Overview
 🔸 AD (Anomaly Detection)
 Detects abnormal patterns using:
-- log/log_ad.py: unsupervised log-based detection
-- metric/metric_ad.py: thresholding/statistical metric analysis
-- trace/trace_ad.py: trace anomaly analysis
+* log/log_ad.py: log-based detection
+* metric/metric_ad.py: metric-based detection
+* trace/trace_ad.py: trace-based detection
 
 🔸 RCL (Root Cause Localization)
 Pinpoints root cause services based on abnormal observability data:
-- log_rcl.py, metric_rcl.py, trace_rcl.py
+* log_rcl.py, metric_rcl.py, trace_rcl.py
 
 🔸 FTI (Fault Type Identification)
-Classifies fault types using lightweight supervised classification:
-- build_data.py: build FTI data based on multi-modal events
-- logReg.py: logistic regression training and testing
-- logReg_infer_only.py: inference on new cases
+Classifies fault types using lightweight classification:
+* build_data.py: build FTI data based on multi-modal events
+* logReg.py: logistic regression training and testing
+* logReg_infer_only.py: inference only
 
 
-## Data Directory Structure
+## Data
 
 Due to the large size of the datasets, please download them manually from the following link:
 
@@ -34,6 +34,7 @@ Due to the large size of the datasets, please download them manually from the fo
 
 After downloading, place the extracted folders under the root directory of this project, so the structure looks like this:
 
+```
 Metis/
 ├── Metis-DataSet/
 │   ├── Dataset-A/          # Astronomy Shop Dataset
@@ -42,6 +43,7 @@ Metis/
 ├── RCL/
 ├── FTI/
 ...
+```
 
 
 You can modify the dataset directory in the `Metis.py` file by updating the `root_base_dir` variable to point to your desired dataset.
